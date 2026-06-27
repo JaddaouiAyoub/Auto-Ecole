@@ -27,20 +27,23 @@ export default async function UsersPage() {
   return (
     <div className="space-y-6 pb-8 max-w-5xl mx-auto">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-foreground tracking-tight">Utilisateurs</h2>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-1">
+            Administration
+          </p>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight leading-none">Utilisateurs</h2>
+          <p className="text-sm text-muted-foreground mt-2">
             Gérez les accès de votre personnel à l&apos;application.
           </p>
         </div>
-        <Button className="gap-2">
+        <Button size="sm" className="gap-2">
           <Plus className="w-4 h-4" />
-          Nouvel Utilisateur
+          Nouvel utilisateur
         </Button>
       </div>
 
-      <div className="glass rounded-2xl border border-border shadow-card-sm overflow-hidden">
+      <div className="rounded-2xl border border-border/60 bg-card shadow-[0_1px_4px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead className="bg-muted/30 text-muted-foreground text-xs uppercase tracking-wider">

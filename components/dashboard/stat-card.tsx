@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform, animate } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
+import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 
 interface StatCardProps {
   title: string;
@@ -16,6 +17,29 @@ interface StatCardProps {
   className?: string;
   iconClassName?: string;
   delay?: number;
+  /** Pass a numeric value for animated counter */
+  numericValue?: number;
+  suffix?: string;
+}
+
+function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const controls = animate(0, value, {
+      duration: 1.2,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate(v) {
+        if (ref.current) {
+          ref.current.textContent =
+            Math.round(v).toLocaleString("fr-FR") + suffix;
+        }
+      },
+    });
+    return () => controls.stop();
+  }, [value, suffix]);
+
+  return <span ref={ref}>0{suffix}</span>;
 }
 
 export function StatCard({
@@ -27,53 +51,89 @@ export function StatCard({
   className,
   iconClassName,
   delay = 0,
+  numericValue,
+  suffix,
 }: StatCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay, ease: "easeOut" }}
+      transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -4 }}
       className={cn(
-        "glass rounded-xl p-6 border border-border shadow-card-sm hover:shadow-card-md transition-shadow relative overflow-hidden group",
+        "relative rounded-2xl border border-border/60 bg-card p-6 overflow-hidden group cursor-default",
+        "shadow-[0_1px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)]",
+        "dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_8px_40px_-8px_rgba(0,0,0,0.5)]",
+        "transition-shadow duration-300",
         className
       )}
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
+      {/* Gradient highlight on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       
-      <div className="flex items-center justify-between relative z-10">
-        <p className="text-sm font-medium text-muted-foreground">{title}</p>
+      {/* Subtle top border gradient */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      {/* Decorative circle */}
+      <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-primary/[0.04] group-hover:bg-primary/[0.07] transition-colors duration-500" />
+      <div className="absolute -right-3 -top-3 w-14 h-14 rounded-full bg-primary/[0.03] group-hover:bg-primary/[0.05] transition-colors duration-500" />
+
+      {/* Header Row */}
+      <div className="flex items-start justify-between relative z-10">
+        <p className="text-[13px] font-medium text-muted-foreground tracking-wide leading-tight">
+          {title}
+        </p>
         <div
           className={cn(
-            "w-10 h-10 rounded-lg flex items-center justify-center bg-primary/10",
+            "w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0",
+            "bg-primary/10 group-hover:bg-primary/15 transition-colors duration-300",
+            "shadow-inner",
             iconClassName
           )}
         >
           {icon}
         </div>
       </div>
-      
+
+      {/* Value */}
       <div className="mt-4 relative z-10">
-        <h3 className="text-3xl font-bold tracking-tight text-foreground">{value}</h3>
-        
+        <h3 className="text-[2rem] font-bold tracking-tight text-foreground leading-none">
+          {numericValue !== undefined ? (
+            <AnimatedNumber value={numericValue} suffix={suffix} />
+          ) : (
+            value
+          )}
+        </h3>
+
+        {/* Trend + Description */}
         {(description || trend) && (
-          <div className="flex items-center mt-2 space-x-2">
+          <div className="flex items-center mt-3 gap-2">
             {trend && (
               <span
                 className={cn(
-                  "inline-flex items-center text-xs font-medium px-2 py-0.5 rounded-full",
+                  "inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full",
                   trend.value > 0
-                    ? "text-emerald-600 bg-emerald-500/10"
+                    ? "text-emerald-600 bg-emerald-500/10 dark:text-emerald-400 dark:bg-emerald-500/15"
                     : trend.value < 0
-                    ? "text-red-600 bg-red-500/10"
+                    ? "text-red-500 bg-red-500/10 dark:text-red-400 dark:bg-red-500/15"
                     : "text-muted-foreground bg-muted"
                 )}
               >
+                {trend.value > 0 ? (
+                  <TrendingUp className="w-3 h-3" />
+                ) : trend.value < 0 ? (
+                  <TrendingDown className="w-3 h-3" />
+                ) : (
+                  <Minus className="w-3 h-3" />
+                )}
                 {trend.value > 0 ? "+" : ""}
                 {trend.value}%
               </span>
             )}
             {description && (
-              <span className="text-xs text-muted-foreground truncate">{description}</span>
+              <span className="text-[12px] text-muted-foreground truncate">
+                {description}
+              </span>
             )}
           </div>
         )}

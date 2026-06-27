@@ -25,7 +25,7 @@ export default async function StudentsPage({
     search,
     status,
     hasBalance,
-    limit: 100, // Load a chunk for now, real app might use infinite scroll or real pagination with server actions
+    limit: 100,
   };
 
   const { data } = await getStudents(filters);
@@ -33,36 +33,43 @@ export default async function StudentsPage({
   return (
     <div className="space-y-6 pb-8">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-foreground tracking-tight">Gestion des Élèves</h2>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-1">
+            Gestion
+          </p>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight leading-none">
+            Élèves
+          </h2>
+          <p className="text-sm text-muted-foreground mt-2">
             Gérez vos élèves, leurs statuts et leur progression financière.
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" className="gap-2" asChild>
+          <Button variant="outline" size="sm" className="gap-2" asChild>
             <a href={`/api/export?type=students${search ? `&search=${search}` : ""}`} target="_blank" rel="noreferrer">
               <Download className="w-4 h-4" />
               Exporter
             </a>
           </Button>
-          <Button className="gap-2" asChild>
+          <Button size="sm" className="gap-2" asChild>
             <Link href="/students/new">
               <Plus className="w-4 h-4" />
-              Nouvel Élève
+              Nouvel élève
             </Link>
           </Button>
         </div>
       </div>
 
       {/* Main Table */}
-      <DataTable
-        columns={columns}
-        data={data as any}
-        searchKey="firstName"
-        searchPlaceholder="Filtrer par prénom..."
-      />
+      <div className="rounded-2xl border border-border/60 bg-card shadow-[0_1px_4px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] overflow-hidden">
+        <DataTable
+          columns={columns}
+          data={data as any}
+          searchKey="firstName"
+          searchPlaceholder="Filtrer par prénom..."
+        />
+      </div>
     </div>
   );
 }

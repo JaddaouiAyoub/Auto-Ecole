@@ -26,8 +26,11 @@ export default async function SettingsPage() {
   return (
     <div className="space-y-6 pb-8">
       <div>
-        <h2 className="text-2xl font-bold text-foreground tracking-tight">Paramètres Globaux</h2>
-        <p className="text-sm text-muted-foreground mt-1">
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-1">
+          Administration
+        </p>
+        <h2 className="text-3xl font-bold text-foreground tracking-tight leading-none">Paramètres</h2>
+        <p className="text-sm text-muted-foreground mt-2">
           Configurez les informations de votre auto-école pour les reçus et l&apos;interface.
         </p>
       </div>

@@ -81,7 +81,7 @@ export function StudentForm({ initialData, isEdit = false }: StudentFormProps) {
             <h2 className="text-2xl font-bold tracking-tight">
               {isEdit ? "Modifier l'élève" : "Nouvel Élève"}
             </h2>
-            <p className="text-sm text-muted-foreground mt-1">
+            <p className="text-sm text-muted-foreground mt-1 ">
               Remplissez les informations ci-dessous.
             </p>
           </div>

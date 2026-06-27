@@ -41,14 +41,19 @@ export default async function AuditLogsPage() {
 
   return (
     <div className="space-y-6 pb-8 max-w-6xl mx-auto">
-      <div>
-        <h2 className="text-2xl font-bold text-foreground tracking-tight">Journal d&apos;Audit</h2>
-        <p className="text-sm text-muted-foreground mt-1">
-          Trace complète des actions effectuées sur le système (100 dernières entrées).
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-1">
+            Administration
+          </p>
+          <h2 className="text-3xl font-bold text-foreground tracking-tight leading-none">Journal d&apos;Audit</h2>
+          <p className="text-sm text-muted-foreground mt-2">
+            Trace complète des actions effectuées sur le système (100 dernières entrées).
+          </p>
+        </div>
       </div>
 
-      <div className="glass rounded-2xl border border-border shadow-card-sm overflow-hidden">
+      <div className="rounded-2xl border border-border/60 bg-card shadow-[0_1px_4px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead className="bg-muted/30 text-muted-foreground text-xs uppercase tracking-wider">

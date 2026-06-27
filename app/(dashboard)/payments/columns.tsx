@@ -8,6 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuGroup,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -145,13 +146,15 @@ export const columns: ColumnDef<PaymentWithStudent>[] = [
             <MoreHorizontal className="h-4 w-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem render={<Link href={`/students/${payment.student.id}`} />} className="cursor-pointer flex items-center">
-              <Eye className="w-4 h-4 mr-2" /> Voir l&apos;élève
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer flex items-center">
-              <FileText className="w-4 h-4 mr-2" /> Imprimer le reçu
-            </DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem render={<Link href={`/students/${payment.student.id}`} />} className="cursor-pointer flex items-center">
+                <Eye className="w-4 h-4 mr-2" /> Voir l&apos;élève
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer flex items-center">
+                <FileText className="w-4 h-4 mr-2" /> Imprimer le reçu
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="cursor-pointer flex items-center text-destructive focus:text-destructive focus:bg-destructive/10">
               <Trash2 className="w-4 h-4 mr-2" /> Supprimer (Admin)

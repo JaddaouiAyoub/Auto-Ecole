@@ -9,6 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuGroup,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -139,13 +140,15 @@ export const columns: ColumnDef<StudentWithCounts>[] = [
             <MoreHorizontal className="h-4 w-4" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem render={<Link href={`/students/${student.id}`} />} className="cursor-pointer flex items-center">
-              <Eye className="w-4 h-4 mr-2" /> Voir le profil
-            </DropdownMenuItem>
-            <DropdownMenuItem render={<Link href={`/students/${student.id}/edit`} />} className="cursor-pointer flex items-center">
-              <Edit className="w-4 h-4 mr-2" /> Modifier
-            </DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem render={<Link href={`/students/${student.id}`} />} className="cursor-pointer flex items-center">
+                <Eye className="w-4 h-4 mr-2" /> Voir le profil
+              </DropdownMenuItem>
+              <DropdownMenuItem render={<Link href={`/students/${student.id}/edit`} />} className="cursor-pointer flex items-center">
+                <Edit className="w-4 h-4 mr-2" /> Modifier
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem render={<Link href={`/payments/new?studentId=${student.id}`} />} className="cursor-pointer flex items-center text-primary">
               <FileText className="w-4 h-4 mr-2" /> Ajouter un paiement
