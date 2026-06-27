@@ -104,7 +104,7 @@ export const NAV_ITEMS = [
     roles: ["ADMIN", "SECRETARY"],
   },
   {
-    title: "Élèves",
+    title: "Candidats",
     titleAr: "الطلاب",
     href: "/students",
     icon: "Users",

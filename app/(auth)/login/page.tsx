@@ -83,7 +83,7 @@ export default function LoginPage() {
               Gérez votre auto-école<br />en toute simplicité
             </h2>
             <p className="text-white/55 text-sm leading-relaxed max-w-[300px]">
-              Suivi des élèves, planning des moniteurs, gestion des paiements — tout en un seul endroit.
+              Suivi des Candidats, planning des moniteurs, gestion des paiements — tout en un seul endroit.
             </p>
 
             {/* Stats */}

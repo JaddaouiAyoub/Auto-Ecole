@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     template: "%s | Auto-École Manager",
   },
   description:
-    "Système de gestion complet pour auto-école. Gérez vos élèves, paiements, et statistiques en toute simplicité.",
-  keywords: ["auto-école", "gestion", "paiements", "élèves", "maroc", "permis de conduire"],
+    "Système de gestion complet pour auto-école. Gérez vos Candidats, paiements, et statistiques en toute simplicité.",
+  keywords: ["auto-école", "gestion", "paiements", "Candidats", "maroc", "permis de conduire"],
   authors: [{ name: "Auto-École Manager" }],
   creator: "Auto-École Manager",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),

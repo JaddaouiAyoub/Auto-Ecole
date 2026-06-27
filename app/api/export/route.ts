@@ -78,7 +78,7 @@ export async function GET(request: NextRequest) {
     // Generate Excel file
     const worksheet = xlsx.utils.json_to_sheet(data);
     const workbook = xlsx.utils.book_new();
-    xlsx.utils.book_append_sheet(workbook, worksheet, type === "students" ? "Élèves" : "Paiements");
+    xlsx.utils.book_append_sheet(workbook, worksheet, type === "students" ? "Candidats" : "Paiements");
 
     // Adjust column widths
     const wscols = Object.keys(data[0] || {}).map(() => ({ wch: 20 }));

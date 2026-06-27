@@ -30,7 +30,7 @@ export function StudentsWithBalance({ students }: StudentsWithBalanceProps) {
           <span className="text-lg">✅</span>
         </div>
         <p className="text-sm font-medium text-muted-foreground">Aucun solde impayé</p>
-        <p className="text-xs text-muted-foreground/60 mt-1">Tous les élèves sont à jour</p>
+        <p className="text-xs text-muted-foreground/60 mt-1">Tous les Candidats sont à jour</p>
       </div>
     );
   }

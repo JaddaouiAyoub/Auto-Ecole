@@ -36,10 +36,10 @@ export default async function StudentsPage({
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h2 className="text-4xl font-extrabold text-foreground tracking-tight leading-none">
-            Élèves
+            Candidats
           </h2>
           <p className="text-sm text-muted-foreground mt-3 font-medium">
-            Gérez vos élèves, leurs statuts et leur progression financière.
+            Gérez vos Candidats, leurs statuts et leur progression financière.
           </p>
         </div>
         <div className="flex items-center gap-2">

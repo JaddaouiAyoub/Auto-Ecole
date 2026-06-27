@@ -48,7 +48,7 @@ export default async function StatisticsPage({
       {/* KPI Highlights */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
-          title="Élèves actifs"
+          title="Candidats actifs"
           value={stats.activeStudents}
           numericValue={stats.activeStudents}
           icon={<Users className="w-5 h-5 text-blue-500" />}
