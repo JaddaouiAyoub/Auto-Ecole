@@ -19,23 +19,20 @@ export default async function DashboardPage() {
   ]);
 
   return (
-    <div className="space-y-8 pb-8">
+    <div className="space-y-12 pb-12">
       {/* Page Header */}
-      <div className="flex items-end justify-between">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-1">
-            Vue d&apos;ensemble
-          </p>
-          <h2 className="text-3xl font-bold text-foreground tracking-tight leading-none">
+          <h2 className="text-4xl font-extrabold text-foreground tracking-tight leading-none">
             Tableau de bord
           </h2>
-          <p className="text-sm text-muted-foreground mt-2">
-            Performances de votre auto-école — {currentYear}
+          <p className="text-sm text-muted-foreground mt-3 font-medium">
+            Performances globales de votre auto-école pour {currentYear}.
           </p>
         </div>
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground bg-secondary/60 border border-border/50 px-3 py-1.5 rounded-full">
-          <TrendingUp className="w-3 h-3 text-emerald-500" />
-          <span>Taux de recouvrement: <strong className="text-foreground">{stats.collectionRate.toFixed(1)}%</strong></span>
+        <div className="flex items-center gap-2 text-sm font-medium text-foreground bg-card/50 border border-border/40 px-4 py-2 rounded-xl shadow-sm backdrop-blur-md">
+          <TrendingUp className="w-4 h-4 text-primary" />
+          <span>Taux de recouvrement: <strong className="text-primary">{stats.collectionRate.toFixed(1)}%</strong></span>
         </div>
       </div>
 
@@ -74,55 +71,60 @@ export default async function DashboardPage() {
         />
       </div>
 
-      {/* Charts & Lists Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* Charts & Lists Grid (Bento Style) */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Chart */}
-        <div className="lg:col-span-2 rounded-2xl border border-border/60 bg-card shadow-[0_1px_4px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] p-6 flex flex-col">
-          <div className="flex items-start justify-between mb-6">
+        <div className="lg:col-span-2 rounded-[24px] border border-border/40 bg-card/50 backdrop-blur-xl shadow-sm p-8 flex flex-col relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] to-transparent pointer-events-none" />
+          <div className="flex items-start justify-between mb-8 relative z-10">
             <div>
-              <h3 className="text-base font-semibold text-foreground leading-none">Évolution des revenus</h3>
-              <p className="text-xs text-muted-foreground mt-1.5">Revenus mensuels — {currentYear}</p>
+              <h3 className="text-lg font-bold text-foreground tracking-tight">Évolution des revenus</h3>
+              <p className="text-sm text-muted-foreground mt-1 font-medium">Analyse mensuelle pour {currentYear}</p>
             </div>
-            <select className="text-xs bg-secondary border border-border rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-ring text-muted-foreground">
+            <select className="text-sm font-medium bg-secondary/50 border border-border/50 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground transition-shadow cursor-pointer">
               <option value={currentYear}>{currentYear}</option>
               <option value={currentYear - 1}>{currentYear - 1}</option>
             </select>
           </div>
-          <div className="flex-1 min-h-[300px]">
+          <div className="flex-1 min-h-[350px] relative z-10">
             <RevenueChart data={monthlyData} />
           </div>
         </div>
 
         {/* Right Column: Lists */}
-        <div className="space-y-6">
+        <div className="space-y-8 flex flex-col">
           {/* Recent Payments */}
-          <div className="rounded-2xl border border-border/60 bg-card shadow-[0_1px_4px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] p-5">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-semibold text-foreground">Derniers paiements</h3>
+          <div className="flex-1 rounded-[24px] border border-border/40 bg-card/50 backdrop-blur-xl shadow-sm p-6 relative overflow-hidden">
+            <div className="flex items-center justify-between mb-6 relative z-10">
+              <h3 className="text-base font-bold text-foreground tracking-tight">Derniers paiements</h3>
               <Link
                 href="/payments"
-                className="text-xs font-medium text-primary hover:text-primary/80 flex items-center gap-1 transition-colors group"
+                className="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1 transition-colors group"
               >
                 Voir tout{" "}
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-            <RecentPayments payments={recentPayments} />
+            <div className="relative z-10">
+              <RecentPayments payments={recentPayments} />
+            </div>
           </div>
 
           {/* Students with Balance */}
-          <div className="rounded-2xl border border-border/60 bg-card shadow-[0_1px_4px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] p-5">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-semibold text-foreground">Soldes impayés</h3>
+          <div className="flex-1 rounded-[24px] border border-border/40 bg-card/50 backdrop-blur-xl shadow-sm p-6 relative overflow-hidden">
+            <div className="flex items-center justify-between mb-6 relative z-10">
+              <h3 className="text-base font-bold text-foreground tracking-tight">Soldes impayés</h3>
               <Link
                 href="/students?hasBalance=true"
-                className="text-xs font-medium text-primary hover:text-primary/80 flex items-center gap-1 transition-colors group"
+                className="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1 transition-colors group"
               >
                 Gérer{" "}
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-            <StudentsWithBalance students={studentsWithBalance} />
+            <div className="relative z-10">
+              <StudentsWithBalance students={studentsWithBalance} />
+            </div>
           </div>
         </div>
       </div>

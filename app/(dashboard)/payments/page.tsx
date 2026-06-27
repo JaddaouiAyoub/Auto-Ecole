@@ -27,13 +27,10 @@ export default async function PaymentsPage({
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary/70 mb-1">
-            Finances
-          </p>
-          <h2 className="text-3xl font-bold text-foreground tracking-tight leading-none">
+          <h2 className="text-4xl font-extrabold text-foreground tracking-tight leading-none">
             Paiements
           </h2>
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="text-sm text-muted-foreground mt-3 font-medium">
             Gérez les encaissements, consultez l&apos;historique et générez des reçus.
           </p>
         </div>
@@ -54,7 +51,7 @@ export default async function PaymentsPage({
       </div>
 
       {/* Main Table */}
-      <div className="rounded-2xl border border-border/60 bg-card shadow-[0_1px_4px_rgba(0,0,0,0.04)] dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] overflow-hidden">
+      <div className="rounded-[24px] border border-border/40 bg-card/50 backdrop-blur-xl shadow-sm overflow-hidden">
         <DataTable
           columns={columns}
           data={data as any}

@@ -67,15 +67,15 @@ export function Header({ session, settings }: HeaderProps) {
 
   return (
     <>
-      <header className="flex items-center justify-between h-16 px-4 md:px-6 border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-10 flex-shrink-0">
+      <header className="flex items-center justify-between h-20 px-4 md:px-8 bg-background/40 backdrop-blur-md border-b border-border/20 sticky top-0 z-30 flex-shrink-0">
         {/* Left: Title */}
-        <div className="flex items-center gap-3">
-          <button className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors">
+        <div className="flex items-center gap-4">
+          <button className="md:hidden p-2 rounded-xl hover:bg-muted transition-colors">
             <Menu className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-base font-semibold text-foreground">{pageTitle}</h1>
-            <p className="text-xs text-muted-foreground hidden sm:block">
+            <h1 className="text-lg font-bold text-foreground tracking-tight">{pageTitle}</h1>
+            <p className="text-xs text-muted-foreground hidden sm:block font-medium">
               {settings?.schoolName ?? "Auto-École Manager"}
             </p>
           </div>

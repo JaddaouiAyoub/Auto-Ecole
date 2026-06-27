@@ -61,10 +61,9 @@ export function StatCard({
       transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
       className={cn(
-        "relative rounded-2xl border border-border/60 bg-card p-6 overflow-hidden group cursor-default",
-        "shadow-[0_1px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)]",
-        "dark:shadow-[0_1px_4px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_8px_40px_-8px_rgba(0,0,0,0.5)]",
-        "transition-shadow duration-300",
+        "relative rounded-[24px] border border-border/40 bg-card/50 backdrop-blur-xl p-6 overflow-hidden group cursor-default",
+        "shadow-sm hover:shadow-md",
+        "transition-all duration-300",
         className
       )}
     >
@@ -96,8 +95,8 @@ export function StatCard({
       </div>
 
       {/* Value */}
-      <div className="mt-4 relative z-10">
-        <h3 className="text-[2rem] font-bold tracking-tight text-foreground leading-none">
+      <div className="mt-6 relative z-10">
+        <h3 className="text-5xl font-extrabold tracking-tighter text-foreground leading-none">
           {numericValue !== undefined ? (
             <AnimatedNumber value={numericValue} suffix={suffix} />
           ) : (

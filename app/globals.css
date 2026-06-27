@@ -50,248 +50,276 @@
 }
 
 :root {
-  /* UI Radii */
-  --radius: 0.6rem;
+  --radius: 0.625rem;
 
-  /* =========================================
-     LIGHT MODE — ULTRA CLEAN, VERCEL-INSPIRED
-     ========================================= */
-  --background: 0 0% 100%; /* Pure white background */
-  --foreground: 222.2 84% 4.9%; /* Very dark slate blue */
+  /* ── Light Mode — Linear-inspired ── */
+  --background:     220 20% 97%;   /* Warm off-white, not stark white */
+  --foreground:     224 71% 4%;    /* Near-black with blue tint */
 
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card:           0 0% 100%;
+  --card-foreground: 224 71% 4%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover:        0 0% 100%;
+  --popover-foreground: 224 71% 4%;
 
-  /* Premium SaaS Blue (Vercel #0070F3 style) */
-  --primary: 211 100% 50%;
-  --primary-foreground: 210 40% 98%;
+  --primary:        226 70% 55%;   /* Refined indigo-blue */
+  --primary-foreground: 0 0% 100%;
 
-  /* Soft secondary elements */
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary:      220 14% 93%;
+  --secondary-foreground: 220 40% 25%;
 
-  /* Muted elements */
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted:          220 14% 93%;
+  --muted-foreground: 220 10% 55%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent:         220 14% 93%;
+  --accent-foreground: 220 40% 25%;
 
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive:    0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
 
-  /* Crisp, cool-toned borders */
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 211 100% 50%;
+  --border:         220 13% 88%;
+  --input:          220 13% 88%;
+  --ring:           226 70% 55%;
 
-  /* Analytics Charts Palette - Blues & Cool Tones */
-  --chart-1: 211 100% 50%; /* Primary Blue */
-  --chart-2: 199 89% 48%;  /* Cyan */
-  --chart-3: 250 85% 60%;  /* Violet */
-  --chart-4: 160 84% 39%;  /* Emerald */
-  --chart-5: 340 75% 55%;  /* Pink */
+  /* Charts — refined, distinct */
+  --chart-1: 226 70% 55%;   /* Indigo */
+  --chart-2: 187 75% 42%;   /* Teal */
+  --chart-3: 262 72% 62%;   /* Violet */
+  --chart-4: 150 60% 40%;   /* Emerald */
+  --chart-5: 330 65% 52%;   /* Rose */
 
-  /* Sidebar - Sleek Contrast */
-  --sidebar: 0 0% 98%;
-  --sidebar-foreground: 240 5.3% 26.1%;
-  --sidebar-primary: 211 100% 50%;
+  /* Sidebar */
+  --sidebar:        220 20% 97%;
+  --sidebar-foreground: 224 30% 30%;
+  --sidebar-primary: 226 70% 55%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 210 40% 96.1%;
-  --sidebar-accent-foreground: 240 5.3% 26.1%;
-  --sidebar-border: 214.3 31.8% 91.4%;
-  --sidebar-ring: 211 100% 50%;
+  --sidebar-accent: 220 14% 92%;
+  --sidebar-accent-foreground: 224 30% 30%;
+  --sidebar-border: 220 13% 90%;
+  --sidebar-ring:   226 70% 55%;
 }
 
 .dark {
-  /* =========================================
-     DARK MODE — DEEP NAVY / SUPABASE INSPIRED
-     ========================================= */
-  --background: 222.2 84% 4.9%; /* Very deep blue-black */
-  --foreground: 210 40% 98%;
+  /* ── Dark Mode — Raycast/Linear inspired ── */
+  --background:     224 20% 9%;    /* Neutral dark, not blue-black */
+  --foreground:     220 15% 94%;
 
-  /* Elevated surfaces with slight depth */
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
+  --card:           224 18% 11%;
+  --card-foreground: 220 15% 94%;
 
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
+  --popover:        224 18% 12%;
+  --popover-foreground: 220 15% 94%;
 
-  /* Electric Blue for Dark Mode */
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  --primary:        226 70% 62%;
+  --primary-foreground: 224 71% 4%;
 
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary:      224 16% 16%;
+  --secondary-foreground: 220 15% 88%;
 
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted:          224 16% 15%;
+  --muted-foreground: 220 10% 52%;
 
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
+  --accent:         224 16% 16%;
+  --accent-foreground: 220 15% 88%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive:    0 60% 45%;
+  --destructive-foreground: 0 0% 98%;
 
-  /* Subtle, sophisticated borders */
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 217.2 91.2% 59.8%;
+  --border:         224 15% 18%;   /* Subtle, warm-toned borders */
+  --input:          224 15% 16%;
+  --ring:           226 70% 62%;
 
-  /* Glowing charts */
-  --chart-1: 217.2 91.2% 59.8%;
-  --chart-2: 199 89% 48%;
-  --chart-3: 250 85% 60%;
-  --chart-4: 160 84% 39%;
-  --chart-5: 340 75% 55%;
+  --chart-1: 226 70% 62%;
+  --chart-2: 187 75% 48%;
+  --chart-3: 262 72% 68%;
+  --chart-4: 150 60% 46%;
+  --chart-5: 330 65% 58%;
 
-  /* Sidebar Dark */
-  --sidebar: 222.2 84% 4.9%;
-  --sidebar-foreground: 210 40% 98%;
-  --sidebar-primary: 217.2 91.2% 59.8%;
+  /* Sidebar */
+  --sidebar:        224 20% 8%;
+  --sidebar-foreground: 220 15% 80%;
+  --sidebar-primary: 226 70% 62%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 217.2 32.6% 17.5%;
-  --sidebar-accent-foreground: 210 40% 98%;
-  --sidebar-border: 217.2 32.6% 17.5%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
+  --sidebar-accent: 224 16% 14%;
+  --sidebar-accent-foreground: 220 15% 80%;
+  --sidebar-border: 224 15% 15%;
+  --sidebar-ring:   226 70% 62%;
 }
 
-/* ─── Base Styles ────────────────────────────────────────────────────────────── */
+/* ─── Base ─────────────────────────────────────────── */
 
-* {
+*, *::before, *::after {
   border-color: hsl(var(--border));
+  box-sizing: border-box;
+}
+
+html {
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
 }
 
-/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+/* ─── Scrollbar ────────────────────────────────────── */
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  {
   background: hsl(var(--border));
-  border-radius: 100px;
+  border-radius: 99px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: hsl(var(--muted-foreground) / 0.5);
 }
 
-/* ─── Focus Visible ──────────────────────────────────────────────────────────── */
+/* ─── Focus & Selection ────────────────────────────── */
 
 :focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 ::selection {
-  background: hsl(var(--primary) / 0.3);
+  background: hsl(var(--primary) / 0.15);
   color: hsl(var(--foreground));
 }
 
-/* ─── Premium UI Primitives ──────────────────────────────────────────────────── */
+/* ─── Primitives ────────────────────────────────────── */
 
-/* Elegant Glassmorphism */
+/* Glass surface */
 .glass {
-  background: hsl(var(--card) / 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid hsl(var(--border) / 0.5);
-  box-shadow: 0 4px 24px -1px rgb(0 0 0 / 0.1);
+  background: hsl(var(--card) / 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid hsl(var(--border) / 0.6);
 }
-
 .dark .glass {
-  background: hsl(var(--card) / 0.4);
-  border-top: 1px solid hsl(var(--border) / 0.8);
-  box-shadow: 0 8px 32px -4px rgb(0 0 0 / 0.5), inset 0 1px 1px 0 rgb(255 255 255 / 0.05);
+  background: hsl(var(--card) / 0.55);
+  border: 1px solid hsl(var(--border) / 0.4);
+  box-shadow: 0 0 0 1px hsl(220 15% 100% / 0.04) inset;
 }
 
-/* Interactive Card Surfaces */
+/* Elevated card surface */
 .surface-card {
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) + 2px);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 .surface-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px -10px rgb(0 0 0 / 0.1);
+  transform: translateY(-1px);
   border-color: hsl(var(--border));
+  box-shadow:
+    0 1px 2px hsl(220 20% 10% / 0.04),
+    0 4px 16px hsl(220 20% 10% / 0.08);
 }
 .dark .surface-card:hover {
-  box-shadow: 0 12px 40px -10px rgb(0 0 0 / 0.6), inset 0 1px 1px 0 rgb(255 255 255 / 0.1);
-  border-color: hsl(var(--border) / 1.5);
+  border-color: hsl(var(--border));
+  box-shadow:
+    0 1px 2px hsl(0 0% 0% / 0.2),
+    0 4px 16px hsl(0 0% 0% / 0.35);
 }
 
-/* Gorgeous Skeleton Loading */
+/* Skeleton loader */
 .skeleton {
   background: linear-gradient(
     90deg,
     hsl(var(--muted)) 25%,
-    hsl(var(--muted-foreground) / 0.1) 50%,
+    hsl(var(--muted-foreground) / 0.08) 50%,
     hsl(var(--muted)) 75%
   );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
   border-radius: var(--radius);
 }
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+@keyframes skeleton-shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
 
-/* ─── Typography & Gradients ─────────────────────────────────────────────────── */
+/* ─── Typography ────────────────────────────────────── */
 
 .gradient-text {
-  background: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.6) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--foreground)) 0%,
+    hsl(var(--foreground) / 0.5) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-primary {
-  background: linear-gradient(135deg, hsl(var(--primary)), hsl(280 85% 65%));
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(285 70% 65%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Subtle background glows */
-.glow-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: radial-gradient(circle at 50% -20%, hsl(var(--primary) / 0.15), transparent 70%);
-  pointer-events: none;
-  z-index: -1;
+/* ─── Background Utilities ──────────────────────────── */
+
+/* Subtle dot grid — modern alternative to line grid */
+.bg-dot-grid {
+  background-image: radial-gradient(
+    circle,
+    hsl(var(--foreground) / 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
 }
-.dark .glow-bg {
-  background: radial-gradient(circle at 50% -20%, hsl(var(--primary) / 0.1), transparent 70%);
+.dark .bg-dot-grid {
+  background-image: radial-gradient(
+    circle,
+    hsl(var(--foreground) / 0.05) 1px,
+    transparent 1px
+  );
 }
 
-/* ─── RTL Support ────────────────────────────────────────────────────────────── */
+/* Keep legacy grid classes */
+.bg-grid-black {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23000000'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E");
+}
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='%23ffffff'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E");
+}
+
+/* Ambient glow */
+.glow-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -10%,
+    hsl(var(--primary) / 0.12),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.dark .glow-bg {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -10%,
+    hsl(var(--primary) / 0.08),
+    transparent
+  );
+}
+
+/* ─── RTL ───────────────────────────────────────────── */
 
 [dir="rtl"] {
   font-family: var(--font-arabic), 'Noto Kufi Arabic', sans-serif;
 }
 
-/* ─── Base Overrides ─────────────────────────────────────────────────────────── */
+/* ─── Tailwind Base Layer ───────────────────────────── */
 
 @layer base {
   * {

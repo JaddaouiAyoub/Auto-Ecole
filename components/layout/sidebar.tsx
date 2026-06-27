@@ -29,13 +29,13 @@ const NAV_ITEMS = [
   { title: "Élèves", href: "/students", icon: Users, roles: ["ADMIN", "SECRETARY"] },
   { title: "Paiements", href: "/payments", icon: CreditCard, roles: ["ADMIN", "SECRETARY"] },
   { title: "Statistiques", href: "/statistics", icon: BarChart3, roles: ["ADMIN", "SECRETARY"] },
-  { title: "Rapports", href: "/reports", icon: FileText, roles: ["ADMIN", "SECRETARY"] },
+  // { title: "Rapports", href: "/reports", icon: FileText, roles: ["ADMIN", "SECRETARY"] },
 ];
 
 const ADMIN_NAV_ITEMS = [
   { title: "Utilisateurs", href: "/users", icon: UserCog, roles: ["ADMIN"] },
   { title: "Journal d'audit", href: "/audit-logs", icon: ScrollText, roles: ["ADMIN"] },
-  { title: "Sauvegarde", href: "/backup", icon: Database, roles: ["ADMIN"] },
+  // { title: "Sauvegarde", href: "/backup", icon: Database, roles: ["ADMIN"] },
   { title: "Paramètres", href: "/settings", icon: Settings, roles: ["ADMIN"] },
 ];
 
@@ -71,8 +71,14 @@ export function Sidebar({ session, settings }: SidebarProps) {
           {/* Logo Section */}
           <div className="flex items-center h-16 px-4 border-b border-sidebar-border/30 flex-shrink-0 relative z-20 bg-sidebar/50">
             <Link href="/" className="flex items-center gap-3 min-w-0 group">
-              <div className="flex-shrink-0 w-9 h-9 rounded-[10px] bg-primary/10 border border-primary/20 flex items-center justify-center transition-transform group-hover:scale-105 group-active:scale-95">
-                <Car className="w-5 h-5 text-primary" />
+             <div className="flex-shrink-0 w-9 h-9 rounded-[10px] bg-primary/10 border border-primary/20 flex items-center justify-center transition-transform group-hover:scale-105 group-active:scale-95">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-primary">
+                  <path d="M5.5 14.5l2-5A1.5 1.5 0 019 8.5h6a1.5 1.5 0 011.5 1l2 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+                  <path d="M3 14.5h18v3.5a1 1 0 01-1 1H4a1 1 0 01-1-1v-3.5z" fill="currentColor" fillOpacity=".18" stroke="currentColor" strokeWidth="1.3"/>
+                  <circle cx="7.5" cy="18.5" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.3"/>
+                  <circle cx="16.5" cy="18.5" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.3"/>
+                  <rect x="8.5" y="10" width="7" height="4" rx="0.8" fill="none" stroke="currentColor" strokeWidth="1.1" strokeOpacity=".6"/>
+                </svg>
               </div>
               <AnimatePresence>
                 {!collapsed && (
